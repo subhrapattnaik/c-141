@@ -3,7 +3,7 @@ import csv
 
 all_movies = []
 
-with open('movies.csv') as f:
+with open('movies.csv', encoding="utf8") as f:
     reader = csv.reader(f)
     data = list(reader)
     all_movies = data[1:]
@@ -23,6 +23,7 @@ def get_movie():
 
 @app.route("/liked-movie", methods=["POST"])
 def liked_movie():
+    all_movies = []
     movie = all_movies[0]
     all_movies = all_movies[1:]
     liked_movies.append(movie)
@@ -32,6 +33,7 @@ def liked_movie():
 
 @app.route("/unliked-movie", methods=["POST"])
 def unliked_movie():
+    all_movies = []
     movie = all_movies[0]
     all_movies = all_movies[1:]
     not_liked_movies.append(movie)
@@ -41,6 +43,7 @@ def unliked_movie():
 
 @app.route("/did-not-watch", methods=["POST"])
 def did_not_watch():
+    all_movies = []
     movie = all_movies[0]
     all_movies = all_movies[1:]
     did_not_watch.append(movie)
