@@ -1,0 +1,43 @@
+Create an App to provide users with recommendations on what to watch next based on what they have already watched
+The User Interface (UI) has 2 screens 
+
+Screen 1: Take users input on the type of movie user likes 
+Screen 2: Provide recommendations to the user
+Features for the first page in detail :
+Users ability to see a movie 
+User can mark the movie as - liked 
+User can mark the movie as - not liked
+User can mark the movie as - not watched 
+
+=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-
+
+We will build 4 API's 
+The first Api should be a GET request where we will get the details about the movie 
+All other API's (liked,not-liked,not-watched) should be POST request.
+
+=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-
+
+How do we Store the data ?
+
+We can create 4 different lists 
+List of all Movies - liked , not-liked , not-watched
+As the person marks the movie liked/not-liked/not-watched , we can remove that movie from the all movies list,
+So that we don't have any duplicates in our data
+
+We will keep only 1 entry for the movie in any of the 4 storages, to avoid any duplicates.
+
+=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-
+
+We added one "id" in the beginning of movies.csv ,since exporting a dataframe into the csv misses out the name of the first column
+
+=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-
+
+Build a flask API and use the data we just downloaded
+
+=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-
+
+we are creating a route on “/get-movie” and this will be a GET request since we have not specified a method. We are then defining the function get_movie() and inside this function, we are returning the first movie from our all_movies list as a json using the jsonify() method
+
+=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-
+
+we are creating a POST method on route “/liked-movie”. We are then defining the function liked_movie(). Now since we sent the first movie in the previous API, it is obvious for us that the user wants to mark that movie as liked. Therefore, we are selecting the first movie out of all_movies list, we are then removing this movie from the list of all the movies and adding this movie into liked_movies. We are finally returning a success response to the user.
