@@ -1,3 +1,9 @@
+from google.colab import files
+df2.to_csv("movies.csv”) 
+
+#files.download("movies.csv”)
+
+
 Create an App to provide users with recommendations on what to watch next based on what they have already watched
 The User Interface (UI) has 2 screens 
 
